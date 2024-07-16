@@ -9,6 +9,7 @@ import {Navigation} from 'react-native-navigation';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import HomeScreen from './views/HomeScreen';
 import About from './views/AboutScreen';
+import AboutScreen from './views/AboutScreen';
 
 AppRegistry.registerComponent(appName, () => App);
 
@@ -20,8 +21,8 @@ Navigation.registerComponent(
 
 Navigation.registerComponent(
   'About',
-  () => gestureHandlerRootHOC(About),
-  () => About,
+  () => gestureHandlerRootHOC(AboutScreen),
+  () => AboutScreen,
 );
 
 Navigation.setDefaultOptions({

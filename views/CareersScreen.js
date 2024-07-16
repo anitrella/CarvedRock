@@ -37,7 +37,7 @@ const CareerData = [
 ];
 
 const Careers = ({route}) => {
-  const {componentId, navigation} = route?.params;
+  const {navigation} = route?.params;
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -64,11 +64,11 @@ const Careers = ({route}) => {
 
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.pop(componentId)}>
+          onPress={() => navigation.pop()}>
           <Text style={styles.backButtonText}>GO BACK</Text>
         </TouchableOpacity>
 
-        <Footer />
+        <Footer navigation={navigation} />
       </ScrollView>
     </View>
   );

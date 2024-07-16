@@ -46,7 +46,7 @@ const AboutScreen = ({route}) => {
           onPress={() => navigation.navigate('Home')}>
           <Text style={styles.aboutButtonText}>GO BACK</Text>
         </TouchableOpacity>
-        <Footer />
+        <Footer navigation={navigation} />
       </ScrollView>
     </View>
   );

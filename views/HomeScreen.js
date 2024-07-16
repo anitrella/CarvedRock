@@ -53,7 +53,11 @@ const HomeScreen = ({navigation}) => {
           </Text>
         </View>
         <View style={styles?.trailReview}>
-          <Text style={styles?.trailReviewTitle}>TRAIL REVIEW</Text>
+          <Text
+            style={styles?.trailReviewTitle}
+            onPress={() => navigation.navigate('Trail', {navigation})}>
+            TRAIL REVIEW
+          </Text>
           <Image
             style={styles?.trailImage}
             source={require('../assets/shutterstock_404137699.jpg')}

@@ -6,7 +6,6 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Navigation} from 'react-native-navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -37,7 +36,8 @@ const CareerData = [
   },
 ];
 
-const Careers = props => {
+const Careers = ({route}) => {
+  const {componentId, navigation} = route?.params;
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -46,61 +46,25 @@ const Careers = props => {
           style={styles.imageStyle}
           source={require('../assets/shutterstock_615245324.jpg')}
         />
-        <View style={styles.jobContainer}>
-          <Text style={styles.title}>{CareerData[0].jobTitle}</Text>
-          <Text style={styles.subTitle}>Duties:</Text>
-          <Text style={styles.content}>{CareerData[0].duties}</Text>
-          <Text style={styles.subTitle}>Qualifications:</Text>
-          <Text style={styles.content}>{CareerData[0].qualifications}</Text>
-          <Text style={styles.subTitle}>Starting Wage:</Text>
-          <Text style={styles.content}>{CareerData[0].wage}</Text>
-          <TouchableOpacity style={styles.applyButton}>
-            <Text style={styles.applyButtonText}>APPLY</Text>
-          </TouchableOpacity>
-        </View>
 
-        <View style={styles.jobContainer}>
-          <Text style={styles.title}>{CareerData[1].jobTitle}</Text>
-          <Text style={styles.subTitle}>Duties:</Text>
-          <Text style={styles.content}>{CareerData[1].duties}</Text>
-          <Text style={styles.subTitle}>Qualifications:</Text>
-          <Text style={styles.content}>{CareerData[1].qualifications}</Text>
-          <Text style={styles.subTitle}>Starting Wage:</Text>
-          <Text style={styles.content}>{CareerData[1].wage}</Text>
-          <TouchableOpacity style={styles.applyButton}>
-            <Text style={styles.applyButtonText}>APPLY</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.jobContainer}>
-          <Text style={styles.title}>{CareerData[2].jobTitle}</Text>
-          <Text style={styles.subTitle}>Duties:</Text>
-          <Text style={styles.content}>{CareerData[2].duties}</Text>
-          <Text style={styles.subTitle}>Qualifications:</Text>
-          <Text style={styles.content}>{CareerData[2].qualifications}</Text>
-          <Text style={styles.subTitle}>Starting Wage:</Text>
-          <Text style={styles.content}>{CareerData[2].wage}</Text>
-          <TouchableOpacity style={styles.applyButton}>
-            <Text style={styles.applyButtonText}>APPLY</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.jobContainer}>
-          <Text style={styles.title}>{CareerData[3].jobTitle}</Text>
-          <Text style={styles.subTitle}>Duties:</Text>
-          <Text style={styles.content}>{CareerData[3].duties}</Text>
-          <Text style={styles.subTitle}>Qualifications:</Text>
-          <Text style={styles.content}>{CareerData[3].qualifications}</Text>
-          <Text style={styles.subTitle}>Starting Wage:</Text>
-          <Text style={styles.content}>{CareerData[3].wage}</Text>
-          <TouchableOpacity style={styles.applyButton}>
-            <Text style={styles.applyButtonText}>APPLY</Text>
-          </TouchableOpacity>
-        </View>
+        {CareerData?.map(careerElement => (
+          <View style={styles.jobContainer}>
+            <Text style={styles.title}>{careerElement.jobTitle}</Text>
+            <Text style={styles.subTitle}>Duties:</Text>
+            <Text style={styles.content}>{careerElement.duties}</Text>
+            <Text style={styles.subTitle}>Qualifications:</Text>
+            <Text style={styles.content}>{careerElement.qualifications}</Text>
+            <Text style={styles.subTitle}>Starting Wage:</Text>
+            <Text style={styles.content}>{careerElement.wage}</Text>
+            <TouchableOpacity style={styles.applyButton}>
+              <Text style={styles.applyButtonText}>APPLY</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
 
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => Navigation.pop(props.componentId)}>
+          onPress={() => navigation.pop(componentId)}>
           <Text style={styles.backButtonText}>GO BACK</Text>
         </TouchableOpacity>
 

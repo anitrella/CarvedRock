@@ -22,7 +22,7 @@ const AboutScreen = ({route}) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Header />
+        <Header navigation={navigation} />
         <Image
           style={styles.imageStyle}
           source={require('../assets/shutterstock_440789620.jpg')}

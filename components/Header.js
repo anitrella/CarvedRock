@@ -1,13 +1,16 @@
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, TouchableWithoutFeedback} from 'react-native';
 
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <View style={styles?.headerRow}>
-        <Image
-          style={styles?.imageStyle}
-          source={require('../assets/carved-rock-logo-black.png')}
-        />
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={styles?.imageStyle}
+            source={require('../assets/carved-rock-logo-black.png')}
+          />
+        </TouchableWithoutFeedback>
+
         <Image
           style={styles?.menu}
           source={require('../assets/menu_2976215.png')}

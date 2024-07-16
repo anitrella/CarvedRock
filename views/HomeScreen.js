@@ -16,7 +16,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <ScrollView>
-        <Header />
+        <Header navigation={navigation} />
         <View style={styles?.searchRow}>
           <TextInput
             style={styles?.searchInput}

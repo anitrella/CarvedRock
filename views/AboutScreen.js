@@ -7,11 +7,11 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Navigation} from 'react-native-navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const AboutScreen = props => {
+const AboutScreen = ({route}) => {
+  const {navigation} = route?.params;
   const intro = `Whether attacking the mountain that is the top of your bucket list, or attacking a challenging climbing wall, we have you covered. We constantly upgrade our stock with the newest and bset gear. We pride ourselves on stocking the best and the safest gear. And of course our prices are great!`;
 
   const bio = `CarvedRock started for purely selfish regions. Our founder, John Doe, was an adventurer from the start. Between rafting on the Amazon and climbing Everest he tried to do it all. Experiences were important. Over time he learned finding the best gear was a job of its own. boots from thie store, tents and climbing supplies from another. John wished there was a one stop sho for this. Since he couldnt find what he wanted, then CarvedRock was born`;
@@ -29,7 +29,6 @@ const AboutScreen = props => {
   //   });
 
   return (
-    // <GestureDetector gesture={longPressGesture}>
     <View style={styles.container}>
       <ScrollView>
         <Header />
@@ -53,13 +52,12 @@ const AboutScreen = props => {
         <Text style={styles.aboutText}>{stores}</Text>
         <TouchableOpacity
           style={styles.aboutButton}
-          onPress={() => Navigation.pop(props.componentId)}>
+          onPress={() => navigation.navigate('Home')}>
           <Text style={styles.aboutButtonText}>GO BACK</Text>
         </TouchableOpacity>
         <Footer />
       </ScrollView>
     </View>
-    // </GestureDetector>
   );
 };
 

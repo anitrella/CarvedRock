@@ -11,7 +11,7 @@ import {useState} from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [searchText, setSearchText] = useState('What can we help you find?');
   return (
     <View style={styles?.container}>
@@ -64,7 +64,7 @@ const HomeScreen = () => {
             <Text style={styles?.trailButtonText}>SEE REVIEW</Text>
           </TouchableOpacity>
         </View>
-        <Footer />
+        <Footer navigation={navigation} />
       </ScrollView>
     </View>
   );

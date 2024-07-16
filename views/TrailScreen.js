@@ -31,13 +31,14 @@ const TrailScreen = ({route}) => {
   const getData = async () => {
     try {
       const {data: reviews} = await axios.get(
-        'http://192.168.15.234:3000/trailreviews',
+        'http://192.168.15.234:3002/trailreviews',
       );
       setRemoteData(reviews);
     } catch (err) {
       setError(true);
     } finally {
       setLoading(false);
+      console.log('DEBUG:: remoteData', remoteData);
     }
   };
 

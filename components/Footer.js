@@ -6,9 +6,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useState} from 'react';
-import {Navigation} from 'react-native-navigation';
 
-const Footer = () => {
+const Footer = ({navigation}) => {
   const [emailText, setEmailText] = useState('Enter email address');
   return (
     <View>
@@ -40,11 +39,14 @@ const Footer = () => {
         <Text
           style={styles?.supportOptions}
           onPress={() =>
-            Navigation.push('carver', {component: {name: 'About'}})
+            navigation.navigate('About')
           }>
           ABOUT
         </Text>
-        <Text style={styles?.supportOptions}>CAREERS</Text>
+        <Text style={styles?.supportOptions} 
+        onPress={() =>
+          navigation.navigate('Careers')
+        }>CAREERS</Text>
         <Text style={styles?.supportOptions}>PRIVACY & TERMS</Text>
         <Text style={styles?.supportOptions}>FOLLOW US</Text>
       </View>

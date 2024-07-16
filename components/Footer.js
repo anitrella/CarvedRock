@@ -38,12 +38,12 @@ const Footer = ({navigation}) => {
         <Text style={styles?.support}>COMPANY INFO</Text>
         <Text
           style={styles?.supportOptions}
-          onPress={() => navigation.navigate('About')}>
+          onPress={() => navigation.navigate('About', {navigation})}>
           ABOUT
         </Text>
         <Text
           style={styles?.supportOptions}
-          onPress={() => navigation.navigate('Careers')}>
+          onPress={() => navigation.navigate('Careers', {navigation})}>
           CAREERS
         </Text>
         <Text style={styles?.supportOptions}>PRIVACY & TERMS</Text>

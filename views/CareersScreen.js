@@ -1,4 +1,12 @@
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import {Navigation} from 'react-native-navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -29,7 +37,7 @@ const CareerData = [
   },
 ];
 
-const CareersScreen = ({componentId}) => {
+const Careers = props => {
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -92,7 +100,7 @@ const CareersScreen = ({componentId}) => {
 
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.navigate.pop(componentId)}>
+          onPress={() => Navigation.pop(props.componentId)}>
           <Text style={styles.backButtonText}>GO BACK</Text>
         </TouchableOpacity>
 
@@ -162,4 +170,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CareersScreen;
+export default Careers;
